@@ -4,10 +4,8 @@ package com.ilham.githubmemberapp.ui.view.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
-import androidx.annotation.StringRes
 import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
@@ -18,7 +16,6 @@ import com.ilham.githubmemberapp.databinding.ActivityDetailUserBinding
 import com.ilham.githubmemberapp.network.APIClient
 import com.ilham.githubmemberapp.network.APIHelper
 import com.ilham.githubmemberapp.ui.base.ViewModelFactory
-import com.ilham.githubmemberapp.ui.view.detail.fragments.FollowerFragment
 import com.ilham.githubmemberapp.ui.viewAdapter.PagerAdapter
 import com.ilham.githubmemberapp.ui.viewModel.MainViewModel
 import com.ilham.githubmemberapp.utils.Status
@@ -32,11 +29,6 @@ class DetailUser : AppCompatActivity() {
     companion object {
         const val LOGIN_KEY = "login"
 
-        @StringRes
-        private val TAB_TITLES = intArrayOf(
-            R.string.followers,
-            R.string.following
-        )
     }
 
     private var followers: Int? = 0

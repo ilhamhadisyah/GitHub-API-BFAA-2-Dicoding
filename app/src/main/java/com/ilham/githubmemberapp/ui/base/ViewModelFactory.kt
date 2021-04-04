@@ -7,6 +7,7 @@ import com.ilham.githubmemberapp.network.APIHelper
 import com.ilham.githubmemberapp.ui.viewModel.MainViewModel
 import java.lang.IllegalArgumentException
 
+@Suppress("UNCHECKED_CAST")
 class ViewModelFactory(private val apiHelper: APIHelper) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {

@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.ilham.githubmemberapp.ui.view.detail.fragments
 
 import android.os.Bundle
@@ -17,7 +19,7 @@ import com.ilham.githubmemberapp.ui.viewAdapter.ItemFollowersAdapter
 import com.ilham.githubmemberapp.ui.viewModel.MainViewModel
 import com.ilham.githubmemberapp.utils.Status
 
-@Suppress("DEPRECATION")
+
 class FollowerFragment : Fragment() {
 
     private lateinit var itemAdapter : ItemFollowersAdapter
@@ -28,13 +30,14 @@ class FollowerFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
+
         }
     }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentFollowerBinding.inflate(inflater, container, false)
         return binding.root

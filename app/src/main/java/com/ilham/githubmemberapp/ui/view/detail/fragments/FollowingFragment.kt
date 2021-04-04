@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.ilham.githubmemberapp.ui.view.detail.fragments
 
 import android.os.Bundle
@@ -7,29 +9,23 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.ilham.githubmemberapp.data.model.UserFollowersItem
 import com.ilham.githubmemberapp.data.model.UserFollowingItem
 import com.ilham.githubmemberapp.databinding.FragmentFollowingBinding
 import com.ilham.githubmemberapp.network.APIClient
 import com.ilham.githubmemberapp.network.APIHelper
 import com.ilham.githubmemberapp.ui.base.ViewModelFactory
 import com.ilham.githubmemberapp.ui.view.detail.DetailUser
-import com.ilham.githubmemberapp.ui.viewAdapter.ItemFollowersAdapter
 import com.ilham.githubmemberapp.ui.viewAdapter.ItemFollowingAdapter
 import com.ilham.githubmemberapp.ui.viewModel.MainViewModel
 import com.ilham.githubmemberapp.utils.Status
 
 
-@Suppress("DEPRECATION")
+
 class FollowingFragment : Fragment() {
     private lateinit var itemAdapter: ItemFollowingAdapter
     private lateinit var viewModel: MainViewModel
     private var _binding: FragmentFollowingBinding? = null
     private val binding get() = _binding!!
-
-    companion object {
-        const val LOGIN_KEY = "key"
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,7 +36,7 @@ class FollowingFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentFollowingBinding.inflate(inflater, container, false)
         return binding.root
     }
