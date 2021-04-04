@@ -1,0 +1,40 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.GithubMemberApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryVariant">@color/white</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
+        <!-- Customize your theme here. -->
+        <item name="civ_border_color">@color/black</item>
+    </style>
+
+    <drawable name="ic_search">@drawable/ic_baseline_search_24_dark</drawable>
+    <drawable name="ic_github">@drawable/ic_github_logo_black</drawable>
+    <drawable name="ic_setting">@drawable/ic_baseline_settings_24_dark</drawable>
+    <drawable name="ic_user_image">@drawable/ic_baseline_supervised_user_circle_24_dark</drawable>
+    <drawable name="search_background">@drawable/search_light</drawable>
+    <drawable name="item_list_background">@drawable/list_item_backgroud_light</drawable>
+    <drawable name="ic_followers">@drawable/ic_follower_dark</drawable>
+    <drawable name="ic_language">@drawable/ic_language_black</drawable>
+    <drawable name="ic_company">@drawable/ic_company_black</drawable>
+    <drawable name="ic_location">@drawable/ic_location_dark</drawable>
+    <drawable name="ic_twitter">@drawable/ic_twitter_dark</drawable>
+    <drawable name="website">@drawable/ic_website_dark</drawable>
+    <drawable name="base_background">@drawable/base_background_white</drawable>
+    <drawable name="base_action_bar_background">@drawable/base_background_dark</drawable>
+
+    <style name="Theme.GithubMemberApp.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="Theme.GithubMemberApp.AppBarOverlay"
+        parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme.GithubMemberApp.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>

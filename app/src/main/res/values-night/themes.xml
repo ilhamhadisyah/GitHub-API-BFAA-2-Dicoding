@@ -1,0 +1,32 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.GithubMemberApp" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
+        <!-- Customize your theme here. -->
+        <item name="civ_border_color">@color/white</item>
+    </style>
+
+    <drawable name="ic_search">@drawable/ic_baseline_search_24_white</drawable>
+    <drawable name="ic_github">@drawable/ic_github_logo_white</drawable>
+    <drawable name="ic_setting">@drawable/ic_baseline_settings_24_white</drawable>
+    <drawable name="search_background">@drawable/search_dark</drawable>
+    <drawable name="ic_user_image">@drawable/ic_baseline_supervised_user_circle_24_white</drawable>
+    <drawable name="item_list_background">@drawable/list_item_backgroud_dark</drawable>
+    <drawable name="ic_followers">@drawable/ic_follower_white</drawable>
+    <drawable name="ic_language">@drawable/ic_language_white</drawable>
+    <drawable name="ic_company">@drawable/ic_company_white</drawable>
+    <drawable name="ic_location">@drawable/ic_location_white</drawable>
+    <drawable name="ic_twitter">@drawable/ic_twitter_white</drawable>
+    <drawable name="website">@drawable/ic_website_white</drawable>
+    <drawable name="base_background">@drawable/base_background_dark</drawable>
+    <drawable name="base_action_bar_background">@drawable/base_background_dark</drawable>
+</resources>
