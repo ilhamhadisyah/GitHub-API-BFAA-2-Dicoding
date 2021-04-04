@@ -1,10 +1,7 @@
 package com.ilham.githubmemberapp.network
 
-import com.google.gson.GsonBuilder
-import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import okhttp3.logging.HttpLoggingInterceptor
 
 object APIClient {
 

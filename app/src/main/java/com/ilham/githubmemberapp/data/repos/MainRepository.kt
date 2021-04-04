@@ -1,8 +1,6 @@
 package com.ilham.githubmemberapp.data.repos
 
 import com.ilham.githubmemberapp.network.APIHelper
-import com.ilham.githubmemberapp.network.APIService
-import retrofit2.http.Query
 
 class MainRepository(private val apiHelper: APIHelper) {
     suspend fun getUsers(query: String) = apiHelper.getUser(query)

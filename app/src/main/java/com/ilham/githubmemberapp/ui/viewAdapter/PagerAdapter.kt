@@ -9,7 +9,8 @@ import com.ilham.githubmemberapp.ui.view.detail.fragments.FollowingFragment
 
 class PagerAdapter(
     appCompatActivity: AppCompatActivity,
-    private val userLogin: Bundle) :
+    private val userLogin: Bundle
+) :
     FragmentStateAdapter(appCompatActivity) {
     override fun getItemCount(): Int {
         return 2
@@ -25,7 +26,6 @@ class PagerAdapter(
         if (fragment != null) {
             fragment.arguments = userLogin
         }
-
         return fragment as Fragment
     }
 }

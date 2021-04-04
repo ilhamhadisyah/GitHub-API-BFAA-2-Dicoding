@@ -1,6 +1,5 @@
 package com.ilham.githubmemberapp.network
 
-import retrofit2.http.Query
 
 class APIHelper(private val apiService: APIService) {
 

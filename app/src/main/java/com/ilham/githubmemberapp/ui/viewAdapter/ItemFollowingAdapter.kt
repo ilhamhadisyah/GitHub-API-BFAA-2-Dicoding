@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.ilham.githubmemberapp.R
 import com.ilham.githubmemberapp.databinding.UserItemListBinding
-import com.ilham.githubmemberapp.data.model.UserFollowersItem
 import com.ilham.githubmemberapp.data.model.UserFollowingItem
 import com.ilham.githubmemberapp.ui.view.detail.DetailUser
 import com.squareup.picasso.Picasso
@@ -29,14 +28,13 @@ class ItemFollowingAdapter(private val list: ArrayList<UserFollowingItem>) :
         init {
             view.setOnClickListener {
                 val position: Int = adapterPosition
-                val loginKey : String? =list[position].login
-                val intent = Intent(itemView.context,DetailUser::class.java)
-                intent.putExtra(DetailUser.LOGIN_KEY,loginKey)
+                val loginKey: String? = list[position].login
+                val intent = Intent(itemView.context, DetailUser::class.java)
+                intent.putExtra(DetailUser.LOGIN_KEY, loginKey)
                 itemView.context.startActivity(intent)
 
             }
         }
-
     }
 
     override fun onCreateViewHolder(
@@ -62,6 +60,5 @@ class ItemFollowingAdapter(private val list: ArrayList<UserFollowingItem>) :
             clear()
             addAll(users)
         }
-
     }
 }

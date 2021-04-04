@@ -28,14 +28,12 @@ class ItemAdapter(private val list: ArrayList<SearchUserItem>) :
         init {
             view.setOnClickListener {
                 val position: Int = adapterPosition
-                val loginKey : String? =list[position].login
-                val intent = Intent(itemView.context,DetailUser::class.java)
-                intent.putExtra(DetailUser.LOGIN_KEY,loginKey)
+                val loginKey: String? = list[position].login
+                val intent = Intent(itemView.context, DetailUser::class.java)
+                intent.putExtra(DetailUser.LOGIN_KEY, loginKey)
                 itemView.context.startActivity(intent)
-
             }
         }
-
     }
 
     override fun onCreateViewHolder(
@@ -61,6 +59,5 @@ class ItemAdapter(private val list: ArrayList<SearchUserItem>) :
             clear()
             addAll(users)
         }
-
     }
 }

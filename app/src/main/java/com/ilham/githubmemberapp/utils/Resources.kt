@@ -11,5 +11,4 @@ data class Resources<out T>(val status: Status, val data: T?, val message: Strin
         fun <T> loading(data: T?): Resources<T> =
             Resources(status = Status.LOADING, data = data, message = null)
     }
-
 }

@@ -59,6 +59,5 @@ class ItemFollowersAdapter(private val list: ArrayList<UserFollowersItem>) :
             clear()
             addAll(users)
         }
-
     }
 }
