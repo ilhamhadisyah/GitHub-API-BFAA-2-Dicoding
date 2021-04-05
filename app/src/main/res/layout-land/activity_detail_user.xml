@@ -2,13 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="horizontal"
-    android:background="@drawable/base_background"
-    android:theme="@style/Theme.GithubMemberApp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/base_background"
+    android:orientation="horizontal"
+    android:theme="@style/Theme.GithubMemberApp"
     tools:context=".ui.view.detail.DetailUser">
-
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
@@ -83,23 +82,26 @@
                 app:drawableStartCompat="@drawable/website" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="30dp"
         android:orientation="vertical">
+
         <com.google.android.material.tabs.TabLayout
             android:id="@+id/tabs"
-            app:tabTextColor="?attr/colorOnPrimary"
-            app:tabIndicatorColor="?attr/colorOnPrimary"
-            app:tabBackground="@drawable/base_background"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            app:tabBackground="@drawable/base_background"
+            app:tabIndicatorColor="?attr/colorOnPrimary"
+            app:tabTextColor="?attr/colorOnPrimary" />
+
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/view_pager"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content" />
     </LinearLayout>
-
-
 </LinearLayout>
+
+

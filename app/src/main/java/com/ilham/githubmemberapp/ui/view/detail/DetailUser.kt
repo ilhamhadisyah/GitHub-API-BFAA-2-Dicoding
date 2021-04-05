@@ -2,6 +2,7 @@
 
 package com.ilham.githubmemberapp.ui.view.detail
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -34,6 +35,7 @@ class DetailUser : AppCompatActivity() {
     private var followers: Int? = 0
     private var following: Int? = 0
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailUserBinding.inflate(layoutInflater)
@@ -41,7 +43,6 @@ class DetailUser : AppCompatActivity() {
         supportActionBar?.setBackgroundDrawable(getDrawable(R.drawable.base_action_bar_background))
         val loginKey = intent.getStringExtra(LOGIN_KEY) as String
         supportActionBar?.title = loginKey
-
         setUpViewModel()
         setUpObserver(loginKey)
     }
@@ -72,7 +73,6 @@ class DetailUser : AppCompatActivity() {
     }
 
 
-
     private fun retrieve(itemUsers: UserDetail) {
         followers = itemUsers.followers
         following = itemUsers.following
@@ -98,8 +98,8 @@ class DetailUser : AppCompatActivity() {
 
 
         val bundle = Bundle()
-        bundle.putString(LOGIN_KEY,itemUsers.login)
-        val pagerAdapter = PagerAdapter(this,bundle)
+        bundle.putString(LOGIN_KEY, itemUsers.login)
+        val pagerAdapter = PagerAdapter(this, bundle)
         val viewPager: ViewPager2 = binding.viewPager
         viewPager.adapter = pagerAdapter
         val tabs: TabLayout = binding.tabs

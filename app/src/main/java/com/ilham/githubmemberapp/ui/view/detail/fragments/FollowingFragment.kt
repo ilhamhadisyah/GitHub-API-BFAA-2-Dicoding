@@ -65,17 +65,31 @@ class FollowingFragment : Fragment() {
             it?.let { resources ->
                 when (resources.status) {
                     Status.SUCCESS -> {
+                        showProgress(2)
                         resources.data?.let { userFollowers -> retrieve(userFollowers) }
                     }
                     Status.ERROR -> {
                     }
                     Status.LOADING -> {
-
+                        showProgress(1)
                     }
                 }
             }
 
         })
+    }
+    private fun showProgress(status: Int) {
+        when (status) {
+            1 -> { // On progress
+                binding.progressFragmentFollowing.visibility = View.VISIBLE
+                binding.rvFollowing.visibility = View.GONE
+            }
+            2 -> { //on success
+                binding.progressFragmentFollowing.visibility = View.GONE
+                binding.rvFollowing.visibility = View.VISIBLE
+            }
+
+        }
     }
 
     private fun retrieve(followersItem: List<UserFollowingItem>) {

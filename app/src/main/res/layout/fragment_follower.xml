@@ -9,7 +9,12 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_followers"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         tools:listitem="@layout/user_item_list"/>
+    <ProgressBar
+        android:id="@+id/progress_fragment_follower"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="180dp"/>
 
 </FrameLayout>

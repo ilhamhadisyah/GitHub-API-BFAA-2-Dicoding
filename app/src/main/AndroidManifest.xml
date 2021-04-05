@@ -11,16 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GithubMemberApp">
-        <activity
-            android:name="com.ilham.githubmemberapp.ui.view.detail.DetailUser"
-            android:parentActivityName="com.ilham.githubmemberapp.ui.view.main.MainActivity"
-            android:theme="@style/Theme.GithubMemberApp"/>
-        <activity
-            android:name="com.ilham.githubmemberapp.ui.view.setting.Setting"
-            android:parentActivityName="com.ilham.githubmemberapp.ui.view.main.MainActivity"
-            android:theme="@style/Theme.GithubMemberApp" />
-        <activity
-            android:name="com.ilham.githubmemberapp.ui.view.main.MainActivity"
+        <activity android:name=".ui.view.splash.Splash"
             android:theme="@style/Theme.GithubMemberApp.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -28,6 +19,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ui.view.detail.DetailUser"
+            android:parentActivityName=".ui.view.main.MainActivity"
+            android:theme="@style/Theme.GithubMemberApp" />
+        <activity
+            android:name=".ui.view.setting.Setting"
+            android:parentActivityName=".ui.view.main.MainActivity"
+            android:theme="@style/Theme.GithubMemberApp" />
+        <activity
+            android:name=".ui.view.main.MainActivity"
+            android:theme="@style/Theme.GithubMemberApp.NoActionBar"/>
 
         <meta-data
             android:name="preloaded_fonts"

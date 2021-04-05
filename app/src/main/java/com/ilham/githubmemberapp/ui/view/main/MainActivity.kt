@@ -28,7 +28,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MainViewModel
     private lateinit var adapter: ItemAdapter
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -37,7 +36,6 @@ class MainActivity : AppCompatActivity() {
         binding.setting.setOnClickListener(clickListener)
         binding.search.queryHint = getString(R.string.hint)
         binding.search.onActionViewExpanded()
-        binding.search.clearFocus()
         binding.welcome.setImageResource(R.drawable.ic_search_user_start)
         showProgress(1)
         binding.search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
@@ -52,6 +50,7 @@ class MainActivity : AppCompatActivity() {
                 return false
             }
         })
+        binding.search.clearFocus()
     }
 
     private val clickListener = View.OnClickListener { view ->
