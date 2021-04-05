@@ -14,7 +14,7 @@
         android:id="@+id/avatar"
         android:layout_width="60dp"
         android:layout_height="60dp"
-        android:padding="8dp"
+        android:padding="10dp"
         android:src="@drawable/ic_user_image"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +27,7 @@
         android:layout_marginLeft="5dp"
         android:fontFamily="@font/open_sans"
         android:text="@string/title"
-        android:textSize="18dp"
+        android:textSize="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/avatar"
         app:layout_constraintStart_toEndOf="@+id/avatar"
         app:layout_constraintTop_toTopOf="@+id/avatar" />
