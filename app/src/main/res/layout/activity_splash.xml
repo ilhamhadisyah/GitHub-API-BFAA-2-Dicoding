@@ -14,18 +14,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="UseCompoundDrawables">
         <ImageView
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:src="@drawable/ic_github"/>
+            android:src="@drawable/ic_github"
+            android:contentDescription="@string/logo" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/title"
             android:layout_marginTop="20dp"
             android:fontFamily="@font/open_sans_bold"
-            android:textSize="25dp"/>
+            android:textSize="25sp"/>
 
 
     </LinearLayout>
