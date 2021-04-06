@@ -19,8 +19,6 @@ import com.ilham.githubmemberapp.ui.viewAdapter.ItemFollowingAdapter
 import com.ilham.githubmemberapp.ui.viewModel.MainViewModel
 import com.ilham.githubmemberapp.utils.Status
 
-
-
 class FollowingFragment : Fragment() {
     private lateinit var itemAdapter: ItemFollowingAdapter
     private lateinit var viewModel: MainViewModel
@@ -46,13 +44,14 @@ class FollowingFragment : Fragment() {
         val loginKey = arguments?.getString(DetailUser.LOGIN_KEY).toString()
         setupViewModel()
         setUpObserver(loginKey)
-
     }
 
     private fun setUI() {
-        binding.rvFollowing.layoutManager = LinearLayoutManager(context)
-        itemAdapter = ItemFollowingAdapter(arrayListOf())
-        binding.rvFollowing.adapter = itemAdapter
+        binding.apply {
+            rvFollowing.layoutManager = LinearLayoutManager(context)
+            itemAdapter = ItemFollowingAdapter(arrayListOf())
+            rvFollowing.adapter = itemAdapter
+        }
     }
 
     private fun setupViewModel() {
@@ -78,15 +77,20 @@ class FollowingFragment : Fragment() {
 
         })
     }
+
     private fun showProgress(status: Int) {
         when (status) {
             1 -> { // On progress
-                binding.progressFragmentFollowing.visibility = View.VISIBLE
-                binding.rvFollowing.visibility = View.GONE
+                binding.apply {
+                    progressFragmentFollowing.visibility = View.VISIBLE
+                    rvFollowing.visibility = View.GONE
+                }
             }
             2 -> { //on success
-                binding.progressFragmentFollowing.visibility = View.GONE
-                binding.rvFollowing.visibility = View.VISIBLE
+                binding.apply {
+                    progressFragmentFollowing.visibility = View.GONE
+                    rvFollowing.visibility = View.VISIBLE
+                }
             }
 
         }

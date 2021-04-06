@@ -16,9 +16,11 @@ class Setting : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivitySettingBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportActionBar?.title = getString(R.string.setting)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-        supportActionBar?.setBackgroundDrawable(getDrawable(R.drawable.base_action_bar_background))
+        supportActionBar?.apply {
+            title = getString(R.string.setting)
+            setDisplayHomeAsUpEnabled(true)
+            setBackgroundDrawable(getDrawable(R.drawable.base_action_bar_background))
+        }
         binding.languageSetting.setOnClickListener(clickListener)
     }
 

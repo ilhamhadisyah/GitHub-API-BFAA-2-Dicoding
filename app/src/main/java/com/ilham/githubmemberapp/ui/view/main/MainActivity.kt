@@ -33,23 +33,24 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.setting.setOnClickListener(clickListener)
-        binding.search.queryHint = getString(R.string.hint)
-        binding.search.onActionViewExpanded()
-        showProgress(1)
-        binding.search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
-            override fun onQueryTextSubmit(query: String): Boolean {
-                setupViewModel()
-                setUI()
-                setUpObserver(query)
-                return false
-            }
+        binding.apply {
+            setting.setOnClickListener(clickListener)
+            search.queryHint = getString(R.string.hint)
+            showProgress(1)
+            search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                override fun onQueryTextSubmit(query: String): Boolean {
+                    setupViewModel()
+                    setUI()
+                    setUpObserver(query)
+                    return false
+                }
 
-            override fun onQueryTextChange(newText: String): Boolean {
-                return false
-            }
-        })
-        binding.search.clearFocus()
+                override fun onQueryTextChange(newText: String): Boolean {
+                    return false
+                }
+            })
+            search.clearFocus()
+        }
     }
 
     private val clickListener = View.OnClickListener { view ->
@@ -67,9 +68,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUI() {
-        binding.homeRecyclerView.layoutManager = LinearLayoutManager(this)
-        adapter = ItemAdapter(arrayListOf())
-        binding.homeRecyclerView.adapter = adapter
+        binding.apply {
+            homeRecyclerView.layoutManager = LinearLayoutManager(this@MainActivity)
+            adapter = ItemAdapter(arrayListOf())
+            homeRecyclerView.adapter = adapter
+        }
     }
 
     private fun setUpObserver(query: String) {
@@ -104,28 +107,36 @@ class MainActivity : AppCompatActivity() {
     private fun showProgress(status: Int) {
         when (status) {
             1 -> { // On query not filled
-                binding.homeRecyclerView.visibility = View.GONE
-                binding.progressAnim.visibility = View.GONE
-                binding.welcome.visibility = View.VISIBLE
-                binding.networkError?.visibility = View.GONE
+                binding.apply {
+                    homeRecyclerView.visibility = View.GONE
+                    progressAnim.visibility = View.GONE
+                    welcome.visibility = View.VISIBLE
+                    networkError.visibility = View.GONE
+                }
             }
             2 -> { //on success
-                binding.homeRecyclerView.visibility = View.VISIBLE
-                binding.progressAnim.visibility = View.GONE
-                binding.welcome.visibility = View.GONE
-                binding.networkError?.visibility = View.GONE
+                binding.apply {
+                    homeRecyclerView.visibility = View.VISIBLE
+                    progressAnim.visibility = View.GONE
+                    welcome.visibility = View.GONE
+                    networkError.visibility = View.GONE
+                }
             }
             3 -> { // On loadding
-                binding.homeRecyclerView.visibility = View.GONE
-                binding.progressAnim.visibility = View.VISIBLE
-                binding.welcome.visibility = View.GONE
-                binding.networkError?.visibility = View.GONE
+                binding.apply {
+                    homeRecyclerView.visibility = View.GONE
+                    progressAnim.visibility = View.VISIBLE
+                    welcome.visibility = View.GONE
+                    networkError.visibility = View.GONE
+                }
             }
-            4 ->{ // Network Error
-                binding.networkError?.visibility = View.VISIBLE
-                binding.homeRecyclerView.visibility = View.GONE
-                binding.progressAnim.visibility = View.GONE
-                binding.welcome.visibility = View.GONE
+            4 -> { // Network Error
+                binding.apply {
+                    homeRecyclerView.visibility = View.GONE
+                    progressAnim.visibility = View.GONE
+                    welcome.visibility = View.GONE
+                    networkError.visibility = View.VISIBLE
+                }
             }
         }
     }

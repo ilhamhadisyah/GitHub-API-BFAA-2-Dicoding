@@ -29,7 +29,6 @@ class DetailUser : AppCompatActivity() {
 
     companion object {
         const val LOGIN_KEY = "login"
-
     }
 
     private var followers: Int? = 0
@@ -40,8 +39,11 @@ class DetailUser : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailUserBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        supportActionBar?.setBackgroundDrawable(getDrawable(R.drawable.base_action_bar_background))
         val loginKey = intent.getStringExtra(LOGIN_KEY) as String
+        supportActionBar?.apply {
+            setBackgroundDrawable(getDrawable(R.drawable.base_action_bar_background))
+            title = loginKey
+        }
         supportActionBar?.title = loginKey
         setUpViewModel()
         setUpObserver(loginKey)
@@ -69,9 +71,7 @@ class DetailUser : AppCompatActivity() {
             }
 
         })
-
     }
-
 
     private fun retrieve(itemUsers: UserDetail) {
         followers = itemUsers.followers
@@ -79,24 +79,11 @@ class DetailUser : AppCompatActivity() {
         binding.nameDetail.text = itemUsers.name
         Picasso.get().load(itemUsers.avatar_url)
             .into(binding.detailUserAvatar)
+        bindData(itemUsers)
+        createTab(itemUsers)
+    }
 
-        if (itemUsers.company == null || itemUsers.company == "null" || itemUsers.company == "")
-            binding.company.visibility = View.GONE
-        else binding.company.text = itemUsers.company
-
-        if (itemUsers.location == null || itemUsers.location == "null" || itemUsers.location == "")
-            binding.location.visibility = View.GONE
-        else binding.location.text = itemUsers.location
-
-        if (itemUsers.twitter_username == null || itemUsers.twitter_username == "null" || itemUsers.twitter_username == "")
-            binding.twitter.visibility = View.GONE
-        else binding.twitter.text = itemUsers.twitter_username
-
-        if (itemUsers.blog == null || itemUsers.blog == "null" || itemUsers.blog == "")
-            binding.website.visibility = View.GONE
-        else binding.website.text = itemUsers.blog
-
-
+    private fun createTab(itemUsers: UserDetail) {
         val bundle = Bundle()
         bundle.putString(LOGIN_KEY, itemUsers.login)
         val pagerAdapter = PagerAdapter(this, bundle)
@@ -112,6 +99,31 @@ class DetailUser : AppCompatActivity() {
                 }
             }
         }.attach()
+    }
+
+    private fun bindData(itemUsers: UserDetail) {
+        binding.apply {
+            if (itemUsers.company == null || itemUsers.company == "null" || itemUsers.company == "")
+                company.visibility = View.GONE
+            else company.text = itemUsers.company
+
+            if (itemUsers.email == null || itemUsers.email == "null" || itemUsers.email == "")
+                emailDetail.visibility = View.GONE
+            else emailDetail.text = itemUsers.email
+
+            if (itemUsers.location == null || itemUsers.location == "null" || itemUsers.location == "")
+                location.visibility = View.GONE
+            else location.text = itemUsers.location
+
+            if (itemUsers.twitter_username == null || itemUsers.twitter_username == "null" || itemUsers.twitter_username == "")
+                twitter.visibility = View.GONE
+            else twitter.text = itemUsers.twitter_username
+
+            if (itemUsers.blog == null || itemUsers.blog == "null" || itemUsers.blog == "")
+                website.visibility = View.GONE
+            else website.text = itemUsers.blog
+        }
+
     }
 
 }

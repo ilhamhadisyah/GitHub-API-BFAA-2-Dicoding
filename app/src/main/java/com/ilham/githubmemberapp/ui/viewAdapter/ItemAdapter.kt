@@ -19,9 +19,11 @@ class ItemAdapter(private val list: ArrayList<SearchUserItem>) :
 
         internal fun bind(searchUserItem: SearchUserItem?) {
             if (searchUserItem != null) {
-                binding.username.text = searchUserItem.login
-                Picasso.get().load(searchUserItem.avatarUrl)
-                    .into(binding.avatar)
+                binding.apply {
+                    username.text = searchUserItem.login
+                    Picasso.get().load(searchUserItem.avatarUrl)
+                        .into(avatar)
+                }
             }
         }
 

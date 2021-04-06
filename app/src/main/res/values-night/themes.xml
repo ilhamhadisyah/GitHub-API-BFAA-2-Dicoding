@@ -29,4 +29,5 @@
     <drawable name="website">@drawable/ic_website_white</drawable>
     <drawable name="base_background">@drawable/base_background_dark</drawable>
     <drawable name="base_action_bar_background">@drawable/base_background_dark</drawable>
+    <drawable name="ic_email">@drawable/ic_baseline_email_24_white</drawable>
 </resources>

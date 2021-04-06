@@ -55,6 +55,14 @@
                     android:padding="1dp"
                     android:text="@string/company"
                     app:drawableLeftCompat="@drawable/ic_company" />
+                <TextView
+                    android:id="@+id/email_detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:drawablePadding="5dp"
+                    android:padding="1dp"
+                    android:text="@string/email"
+                    app:drawableStartCompat="@drawable/ic_email" />
 
                 <TextView
                     android:id="@+id/location"

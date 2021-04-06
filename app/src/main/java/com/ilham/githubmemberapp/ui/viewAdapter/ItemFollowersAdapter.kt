@@ -19,9 +19,11 @@ class ItemFollowersAdapter(private val list: ArrayList<UserFollowersItem>) :
 
         internal fun bind(followers: UserFollowersItem?) {
             if (followers != null) {
-                binding.username.text = followers.login
-                Picasso.get().load(followers.avatarUrl)
-                    .into(binding.avatar)
+                binding.apply {
+                    username.text = followers.login
+                    Picasso.get().load(followers.avatarUrl)
+                        .into(avatar)
+                }
             }
         }
 

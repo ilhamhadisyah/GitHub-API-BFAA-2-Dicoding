@@ -22,9 +22,9 @@ import com.ilham.githubmemberapp.utils.Status
 
 class FollowerFragment : Fragment() {
 
-    private lateinit var itemAdapter : ItemFollowersAdapter
+    private lateinit var itemAdapter: ItemFollowersAdapter
     private lateinit var viewModel: MainViewModel
-    private var _binding : FragmentFollowerBinding? = null
+    private var _binding: FragmentFollowerBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,15 +50,20 @@ class FollowerFragment : Fragment() {
         setUpObserver(loginKey)
 
     }
+
     private fun setUI() {
-        binding.rvFollowers.layoutManager = LinearLayoutManager(context)
-        itemAdapter = ItemFollowersAdapter(arrayListOf())
-        binding.rvFollowers.adapter = itemAdapter
+        binding.apply {
+            rvFollowers.layoutManager = LinearLayoutManager(context)
+            itemAdapter = ItemFollowersAdapter(arrayListOf())
+            rvFollowers.adapter = itemAdapter
+        }
     }
+
     private fun setupViewModel() {
         viewModel = ViewModelProviders.of(this, ViewModelFactory(APIHelper(APIClient.apiService)))
             .get(MainViewModel::class.java)
     }
+
     private fun setUpObserver(query: String) {
         viewModel.getFollowerList(query).observe(viewLifecycleOwner, {
             it?.let { resources ->
@@ -77,17 +82,21 @@ class FollowerFragment : Fragment() {
 
         })
     }
+
     private fun showProgress(status: Int) {
         when (status) {
             1 -> { // On progress
-                binding.progressFragmentFollower.visibility = View.VISIBLE
-                binding.rvFollowers.visibility = View.GONE
+                binding.apply {
+                    progressFragmentFollower.visibility = View.VISIBLE
+                    rvFollowers.visibility = View.GONE
+                }
             }
             2 -> { //on success
-                binding.progressFragmentFollower.visibility = View.GONE
-                binding.rvFollowers.visibility = View.VISIBLE
+                binding.apply {
+                    progressFragmentFollower.visibility = View.GONE
+                    rvFollowers.visibility = View.VISIBLE
+                }
             }
-
         }
     }
 
