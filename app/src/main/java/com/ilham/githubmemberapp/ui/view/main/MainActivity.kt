@@ -36,7 +36,6 @@ class MainActivity : AppCompatActivity() {
         binding.setting.setOnClickListener(clickListener)
         binding.search.queryHint = getString(R.string.hint)
         binding.search.onActionViewExpanded()
-        binding.welcome.setImageResource(R.drawable.ic_search_user_start)
         showProgress(1)
         binding.search.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
@@ -82,7 +81,7 @@ class MainActivity : AppCompatActivity() {
                         resources.data?.let { userItemList -> retrieve(userItemList.itemUsers) }
                     }
                     Status.ERROR -> {
-                        showProgress(1)
+                        showProgress(4)
                         Toast.makeText(this, it.message, Toast.LENGTH_LONG).show()
                     }
                     Status.LOADING -> {
@@ -108,15 +107,24 @@ class MainActivity : AppCompatActivity() {
                 binding.homeRecyclerView.visibility = View.GONE
                 binding.progressAnim.visibility = View.GONE
                 binding.welcome.visibility = View.VISIBLE
+                binding.networkError?.visibility = View.GONE
             }
             2 -> { //on success
                 binding.homeRecyclerView.visibility = View.VISIBLE
                 binding.progressAnim.visibility = View.GONE
                 binding.welcome.visibility = View.GONE
+                binding.networkError?.visibility = View.GONE
             }
             3 -> { // On loadding
                 binding.homeRecyclerView.visibility = View.GONE
                 binding.progressAnim.visibility = View.VISIBLE
+                binding.welcome.visibility = View.GONE
+                binding.networkError?.visibility = View.GONE
+            }
+            4 ->{ // Network Error
+                binding.networkError?.visibility = View.VISIBLE
+                binding.homeRecyclerView.visibility = View.GONE
+                binding.progressAnim.visibility = View.GONE
                 binding.welcome.visibility = View.GONE
             }
         }

@@ -17,7 +17,7 @@ class Splash : AppCompatActivity() {
         setContentView(binding.root)
 
         GlobalScope.launch {
-            delay(2000L)
+            delay(5000L)
             moveIntent()
         }
     }

@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.view.detail.fragments.FollowerFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -10,11 +11,16 @@
         android:id="@+id/rv_followers"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/user_item_list"/>
-    <ProgressBar
+        tools:listitem="@layout/user_item_list" />
+
+    <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/progress_fragment_follower"
+        android:theme="@style/Theme.AppCompat"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="180dp"/>
+        app:lottie_rawRes="@raw/loading"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true"
+        android:padding="150dp" />
 
 </FrameLayout>

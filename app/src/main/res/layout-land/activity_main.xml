@@ -67,7 +67,7 @@
                  />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <RelativeLayout
+        <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="15dp">
@@ -77,19 +77,36 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 tools:listitem="@layout/user_item_list" />
-            <ProgressBar
+            <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/progress_anim"
+                android:theme="@style/Theme.AppCompat"
+                app:lottie_rawRes="@raw/loading"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:padding="400dp"
+                android:padding="150dp"
                 android:layout_gravity="center" />
-            <ImageView
+            <com.airbnb.lottie.LottieAnimationView
                 android:id="@+id/welcome"
-                android:padding="100dp"
+                android:theme="@style/Theme.AppCompat"
+                android:padding="50dp"
+                app:lottie_rawRes="@raw/search_animation"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
                 android:layout_gravity="center"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="wrap_content"/>
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/network_error"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:lottie_loop="true"
+                app:lottie_autoPlay="true"
+                app:lottie_rawRes="@raw/error"
+                android:padding="50dp"
+                android:layout_gravity="center"/>
 
-        </RelativeLayout>
+        </FrameLayout>
     </LinearLayout>
 </RelativeLayout>
