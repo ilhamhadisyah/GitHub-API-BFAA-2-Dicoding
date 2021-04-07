@@ -13,4 +13,5 @@
     <color name="dark_item_list">#1E1E1E</color>
     <color name="light_item_list">#FFFFFF</color>
     <color name="gray">#C6C6C6</color>
+    <color name="github_blue">#1f6feb</color>
 </resources>

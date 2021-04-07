@@ -11,8 +11,8 @@ import com.ilham.githubmemberapp.data.model.SearchUserItem
 import com.ilham.githubmemberapp.ui.view.detail.DetailUser
 import com.squareup.picasso.Picasso
 
-class ItemAdapter(private val list: ArrayList<SearchUserItem>) :
-    RecyclerView.Adapter<ItemAdapter.ItemHolder>() {
+class MainItemAdapter(private val list: ArrayList<SearchUserItem>) :
+    RecyclerView.Adapter<MainItemAdapter.ItemHolder>() {
 
     inner class ItemHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val binding = UserItemListBinding.bind(view)
@@ -23,6 +23,7 @@ class ItemAdapter(private val list: ArrayList<SearchUserItem>) :
                     username.text = searchUserItem.login
                     Picasso.get().load(searchUserItem.avatarUrl)
                         .into(avatar)
+                    url.text = searchUserItem.htmlUrl
                 }
             }
         }
@@ -41,7 +42,7 @@ class ItemAdapter(private val list: ArrayList<SearchUserItem>) :
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ItemAdapter.ItemHolder {
+    ): MainItemAdapter.ItemHolder {
         val view: View =
             LayoutInflater.from(parent.context)
                 .inflate(R.layout.user_item_list, parent, false)

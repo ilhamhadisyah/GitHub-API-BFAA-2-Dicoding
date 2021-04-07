@@ -3,6 +3,8 @@
 package com.ilham.githubmemberapp.ui.view.detail
 
 import android.annotation.SuppressLint
+import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -44,7 +46,6 @@ class DetailUser : AppCompatActivity() {
             setBackgroundDrawable(getDrawable(R.drawable.base_action_bar_background))
             title = loginKey
         }
-        supportActionBar?.title = loginKey
         setUpViewModel()
         setUpObserver(loginKey)
     }
@@ -81,6 +82,17 @@ class DetailUser : AppCompatActivity() {
             .into(binding.detailUserAvatar)
         bindData(itemUsers)
         createTab(itemUsers)
+        openUriBrowser(itemUsers)
+    }
+
+    private fun openUriBrowser(itemUsers: UserDetail) {
+        binding.apply {
+            openUrl.setOnClickListener {
+                val uri: Uri = Uri.parse(itemUsers.htmlUrl)
+                val openUri = Intent(Intent.ACTION_VIEW, uri)
+                startActivity(openUri)
+            }
+        }
     }
 
     private fun createTab(itemUsers: UserDetail) {
@@ -124,6 +136,11 @@ class DetailUser : AppCompatActivity() {
             else website.text = itemUsers.blog
         }
 
+    }
+    private fun openUrl(query: String){
+        val uri : Uri = Uri.parse(query)
+        val openURL = Intent(Intent.ACTION_VIEW,uri)
+        startActivity(openURL)
     }
 
 }

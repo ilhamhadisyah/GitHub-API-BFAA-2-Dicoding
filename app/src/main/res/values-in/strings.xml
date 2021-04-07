@@ -31,5 +31,6 @@
     <string name="avatar_desc">avatar</string>
     <string name="twitter">twitter</string>
     <string name="favourite_button">Favourite Button</string>
+    <string name="url">url</string>
 
 </resources>

@@ -91,6 +91,15 @@
                     android:text="@string/website"
                     app:drawableStartCompat="@drawable/website" />
             </LinearLayout>
+            <ImageButton
+                android:id="@+id/open_url"
+                android:backgroundTint="?attr/colorPrimaryVariant"
+                android:src="@drawable/ic_baseline_open"
+                android:padding="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
