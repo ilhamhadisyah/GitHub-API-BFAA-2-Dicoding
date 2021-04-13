@@ -11,7 +11,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GithubMemberApp">
-        <activity android:name=".ui.view.splash.Splash"
+        <receiver
+            android:name=".AlarmReceiver"
+            android:enabled="true"
+            android:exported="true"></receiver>
+
+        <activity
+            android:name=".ui.view.favourite.FavouriteUserActivity"
+            android:parentActivityName=".ui.view.main.MainActivity" />
+        <activity
+            android:name=".ui.view.splash.Splash"
             android:theme="@style/Theme.GithubMemberApp.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,16 +29,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.view.detail.DetailUser"
+            android:name=".ui.view.detail.DetailUserActivity"
             android:parentActivityName=".ui.view.main.MainActivity"
             android:theme="@style/Theme.GithubMemberApp" />
         <activity
-            android:name=".ui.view.setting.Setting"
+            android:name=".ui.view.setting.SettingActivity"
             android:parentActivityName=".ui.view.main.MainActivity"
             android:theme="@style/Theme.GithubMemberApp" />
         <activity
             android:name=".ui.view.main.MainActivity"
-            android:theme="@style/Theme.GithubMemberApp.NoActionBar"/>
+            android:theme="@style/Theme.GithubMemberApp.NoActionBar" />
 
         <meta-data
             android:name="preloaded_fonts"

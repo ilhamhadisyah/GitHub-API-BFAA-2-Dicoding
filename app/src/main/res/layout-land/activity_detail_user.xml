@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/base_background"
     android:theme="@style/Theme.GithubMemberApp"
-    tools:context=".ui.view.detail.DetailUser">
+    tools:context=".ui.view.detail.DetailUserActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -124,9 +124,12 @@
     </LinearLayout>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_to_fav"
-        android:backgroundTint="?attr/colorPrimary"
+        android:theme="@style/Theme.AppCompat"
+        android:background="?attr/colorSecondary"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        app:borderWidth="0dp"
+        android:src="@drawable/ic_like"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="30dp"

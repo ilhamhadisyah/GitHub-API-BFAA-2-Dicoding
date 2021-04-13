@@ -14,7 +14,7 @@ import com.ilham.githubmemberapp.databinding.FragmentFollowingBinding
 import com.ilham.githubmemberapp.network.APIClient
 import com.ilham.githubmemberapp.network.APIHelper
 import com.ilham.githubmemberapp.ui.base.ViewModelFactory
-import com.ilham.githubmemberapp.ui.view.detail.DetailUser
+import com.ilham.githubmemberapp.ui.view.detail.DetailUserActivity
 import com.ilham.githubmemberapp.ui.viewAdapter.ItemFollowingAdapter
 import com.ilham.githubmemberapp.ui.viewModel.MainViewModel
 import com.ilham.githubmemberapp.utils.Status
@@ -27,8 +27,6 @@ class FollowingFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
     }
 
     override fun onCreateView(
@@ -41,7 +39,7 @@ class FollowingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val loginKey = arguments?.getString(DetailUser.LOGIN_KEY).toString()
+        val loginKey = arguments?.getString(DetailUserActivity.LOGIN_KEY).toString()
         setupViewModel()
         setUpObserver(loginKey)
     }

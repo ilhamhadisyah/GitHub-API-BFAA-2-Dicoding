@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/base_background"
     android:theme="@style/Theme.GithubMemberApp"
-    tools:context=".ui.view.detail.DetailUser">
+    tools:context=".ui.view.detail.DetailUserActivity">
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -108,7 +108,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:contentDescription="@string/open_to_browser" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -129,12 +130,15 @@
     </androidx.core.widget.NestedScrollView>
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/add_to_fav"
+        android:theme="@style/Theme.AppCompat"
         android:layout_width="wrap_content"
-        android:backgroundTint="@color/github_blue"
+        android:backgroundTint="?attr/colorSecondary"
+        android:src="@drawable/ic_like"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="30dp"
+        app:borderWidth="0dp"
         android:contentDescription="@string/favourite_button" />
 
 

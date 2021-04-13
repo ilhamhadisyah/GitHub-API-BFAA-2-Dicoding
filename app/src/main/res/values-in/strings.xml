@@ -10,7 +10,6 @@
     <string name="action_settings">Settings</string>
     <string name="title">Member GitHub</string>
     <string name="website">website</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="logo">logo</string>
 
     <string name="menu_home">Home</string>
@@ -19,18 +18,24 @@
     <string name="menu_slideshow">Slideshow</string>
     <string name="followers">Pengikut</string>
     <string name="following">Mengikuti</string>
-    <string name="user_name">Ilham Hadisyah</string>
+    <string name="user_name">Nama member</string>
     <string name="change_language">Ganti Bahasa</string>
     <string name="company">Perusahaan</string>
     <string name="location">Lokasi</string>
     <string name="blog">Blog</string>
     <string name="email">Email</string>
     <string name="bio">Bio</string>
-    <string name="hint">Ketik sesuatu disini...</string>
+    <string name="hint">Ketik sesuatu disini…</string>
     <string name="token">c603e2a6b21af3e2123a2a6d702c0b3b6f35b564</string>
     <string name="avatar_desc">avatar</string>
     <string name="twitter">twitter</string>
-    <string name="favourite_button">Favourite Button</string>
+    <string name="favourite_button">Tombol suka</string>
     <string name="url">url</string>
+    <string name="open_to_browser">Buka di browser</string>
+    <string name="setting_button">Tombol pengaturan</string>
+    <string name="delete_button">Tombol hapus</string>
+    <string name="add_failed_message">Gagal menambahkan</string>
+    <string name="already_added">User sudah ditambahkan…</string>
+
 
 </resources>

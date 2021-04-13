@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/base_background"
-    tools:context=".ui.view.setting.Setting">
+    tools:context=".ui.view.setting.SettingActivity">
 
     <Button
         android:id="@+id/language_setting"
@@ -14,7 +14,7 @@
         android:background="@color/transparent"
         android:drawableLeft="@drawable/ic_language"
         android:drawablePadding="15dp"
-        android:fontFamily="@font/roboto"
+        android:fontFamily="@font/poppins_semibold"
         android:padding="20dp"
         android:text="@string/language_setting"
         android:textAlignment="textStart"

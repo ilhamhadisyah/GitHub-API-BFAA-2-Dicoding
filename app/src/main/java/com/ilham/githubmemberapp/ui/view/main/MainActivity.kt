@@ -2,7 +2,6 @@
 
 package com.ilham.githubmemberapp.ui.view.main
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,13 +11,14 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ilham.githubmemberapp.R
-import com.ilham.githubmemberapp.ui.view.setting.Setting
+import com.ilham.githubmemberapp.ui.view.setting.SettingActivity
 import com.ilham.githubmemberapp.ui.viewAdapter.MainItemAdapter
 import com.ilham.githubmemberapp.databinding.ActivityMainBinding
 import com.ilham.githubmemberapp.data.model.SearchUserItem
 import com.ilham.githubmemberapp.network.APIClient
 import com.ilham.githubmemberapp.network.APIHelper
 import com.ilham.githubmemberapp.ui.base.ViewModelFactory
+import com.ilham.githubmemberapp.ui.view.favourite.FavouriteUserActivity
 import com.ilham.githubmemberapp.ui.viewModel.MainViewModel
 import com.ilham.githubmemberapp.utils.Status
 
@@ -35,6 +35,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.apply {
             setting.setOnClickListener(clickListener)
+            favourite.setOnClickListener(clickListener)
             search.queryHint = getString(R.string.hint)
             binding.search.onActionViewExpanded()
             showProgress(1)
@@ -56,8 +57,12 @@ class MainActivity : AppCompatActivity() {
     private val clickListener = View.OnClickListener { view ->
         when (view.id) {
             R.id.setting -> {
-                val goToSetting = Intent(this, Setting::class.java)
+                val goToSetting = Intent(this, SettingActivity::class.java)
                 startActivity(goToSetting)
+            }
+            R.id.favourite -> {
+                val goToFav = Intent(this,FavouriteUserActivity::class.java)
+                startActivity(goToFav)
             }
         }
     }

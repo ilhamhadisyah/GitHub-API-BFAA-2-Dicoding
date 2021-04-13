@@ -6,9 +6,9 @@
         <item name="colorPrimaryVariant">@color/black</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondary">@color/white</item>
         <item name="colorSecondaryVariant">@color/teal_200</item>
-        <item name="colorOnSecondary">@color/white</item>
+        <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
         <!-- Customize your theme here. -->
@@ -31,4 +31,6 @@
     <drawable name="base_action_bar_background">@drawable/base_background_dark</drawable>
     <drawable name="ic_email">@drawable/ic_baseline_email_24_white</drawable>
     <drawable name="ic_baseline_open">@drawable/ic_baseline_open_in_new_24_white</drawable>
+    <drawable name="ic_like">@drawable/ic_like_light</drawable>
+    <drawable name="ic_delete">@drawable/ic_baseline_delete_24_light</drawable>
 </resources>

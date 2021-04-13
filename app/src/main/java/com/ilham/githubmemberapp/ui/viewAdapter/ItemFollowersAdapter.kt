@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.ilham.githubmemberapp.R
 import com.ilham.githubmemberapp.databinding.UserItemListBinding
 import com.ilham.githubmemberapp.data.model.UserFollowersItem
-import com.ilham.githubmemberapp.ui.view.detail.DetailUser
+import com.ilham.githubmemberapp.ui.view.detail.DetailUserActivity
 import com.squareup.picasso.Picasso
 
 class ItemFollowersAdapter(private val list: ArrayList<UserFollowersItem>) :
@@ -17,12 +17,13 @@ class ItemFollowersAdapter(private val list: ArrayList<UserFollowersItem>) :
     inner class ItemHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val binding = UserItemListBinding.bind(view)
 
-        internal fun bind(followers: UserFollowersItem?) {
-            if (followers != null) {
+        internal fun bind(following: UserFollowersItem?) {
+            if (following != null) {
                 binding.apply {
-                    username.text = followers.login
-                    Picasso.get().load(followers.avatarUrl)
+                    username.text = following.login
+                    Picasso.get().load(following.avatarUrl)
                         .into(avatar)
+                    url.text = following.htmlUrl
                 }
             }
         }
@@ -31,8 +32,8 @@ class ItemFollowersAdapter(private val list: ArrayList<UserFollowersItem>) :
             view.setOnClickListener {
                 val position: Int = adapterPosition
                 val loginKey : String? =list[position].login
-                val intent = Intent(itemView.context,DetailUser::class.java)
-                intent.putExtra(DetailUser.LOGIN_KEY,loginKey)
+                val intent = Intent(itemView.context,DetailUserActivity::class.java)
+                intent.putExtra(DetailUserActivity.LOGIN_KEY,loginKey)
                 itemView.context.startActivity(intent)
             }
         }
