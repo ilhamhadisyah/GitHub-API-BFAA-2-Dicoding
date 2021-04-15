@@ -36,6 +36,9 @@
     <string name="delete_button">Tombol hapus</string>
     <string name="add_failed_message">Gagal menambahkan</string>
     <string name="already_added">User sudah ditambahkan…</string>
+    <string name="github_repeat_alarm">GitHub Alarm</string>
+    <string name="alarm_message">Pesan Alarm</string>
+    <string name="set_repeat_alarm">Atur Alarm Berulang</string>
 
 
 </resources>

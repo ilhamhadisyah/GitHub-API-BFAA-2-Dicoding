@@ -14,7 +14,7 @@
         android:background="@color/transparent"
         android:drawableLeft="@drawable/ic_language"
         android:drawablePadding="15dp"
-        android:fontFamily="@font/poppins_semibold"
+        android:fontFamily="@font/open_sans"
         android:padding="20dp"
         android:text="@string/language_setting"
         android:textAlignment="textStart"
@@ -23,5 +23,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/alarm_setting"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:drawableLeft="@drawable/ic_alarm"
+        android:drawablePadding="15dp"
+        android:fontFamily="@font/open_sans"
+        android:padding="20dp"
+        android:text="@string/github_repeat_alarm"
+        android:textAlignment="textStart"
+        android:textAllCaps="false"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="@+id/language_setting"
+        app:layout_constraintStart_toStartOf="@+id/language_setting"
+        app:layout_constraintTop_toBottomOf="@+id/language_setting" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

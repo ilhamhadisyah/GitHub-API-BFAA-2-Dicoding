@@ -9,6 +9,7 @@ import android.view.MenuItem
 import android.view.View
 import com.ilham.githubmemberapp.R
 import com.ilham.githubmemberapp.databinding.ActivitySettingBinding
+import com.ilham.githubmemberapp.ui.view.alarm.AlarmSettingActivity
 
 class SettingActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySettingBinding
@@ -23,6 +24,7 @@ class SettingActivity : AppCompatActivity() {
             setBackgroundDrawable(getDrawable(R.drawable.base_action_bar_background))
         }
         binding.languageSetting.setOnClickListener(clickListener)
+        binding.alarmSetting.setOnClickListener(clickListener)
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
@@ -39,6 +41,10 @@ class SettingActivity : AppCompatActivity() {
             R.id.language_setting -> {
                 val setting = Intent(Settings.ACTION_LOCALE_SETTINGS)
                 startActivity(setting)
+            }
+            R.id.alarm_setting->{
+                val alarm = Intent(this,AlarmSettingActivity::class.java)
+                startActivity(alarm)
             }
         }
     }

@@ -8,13 +8,11 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Message
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager2.widget.ViewPager2
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import com.ilham.githubmemberapp.R
@@ -31,7 +29,6 @@ import com.ilham.githubmemberapp.ui.viewAdapter.PagerAdapter
 import com.ilham.githubmemberapp.ui.viewModel.MainViewModel
 import com.ilham.githubmemberapp.utils.Status
 import com.squareup.picasso.Picasso
-import java.sql.SQLException
 
 
 class DetailUserActivity : AppCompatActivity() {

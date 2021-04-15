@@ -33,6 +33,8 @@
     <drawable name="ic_baseline_open">@drawable/ic_baseline_open_in_new_24_dark</drawable>
     <drawable name="ic_like">@drawable/ic_like_dark</drawable>
     <drawable name="ic_delete">@drawable/ic_baseline_delete_24_dark</drawable>
+    <drawable name="ic_clock">@drawable/ic_clock_dark</drawable>
+    <drawable name="ic_alarm">@drawable/ic_alarm_dark</drawable>
 
     <style name="Theme.GithubMemberApp.NoActionBar">
         <item name="windowActionBar">false</item>
