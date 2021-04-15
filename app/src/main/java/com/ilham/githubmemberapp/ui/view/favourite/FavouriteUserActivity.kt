@@ -1,14 +1,19 @@
 package com.ilham.githubmemberapp.ui.view.favourite
 
+import android.database.ContentObserver
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.HandlerThread
 import android.os.Message
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.ilham.githubmemberapp.R
 import com.ilham.githubmemberapp.databinding.ActivityFavouriteUserBinding
+import com.ilham.githubmemberapp.favouriteUserDatabase.db.DatabaseContract.UserColumns.Companion.CONTENT_URI
 import com.ilham.githubmemberapp.favouriteUserDatabase.db.FavouriteUserHelper
 import com.ilham.githubmemberapp.favouriteUserDatabase.entity.FavouriteUser
 import com.ilham.githubmemberapp.favouriteUserDatabase.helper.MappingHelper
@@ -19,7 +24,7 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
 class FavouriteUserActivity : AppCompatActivity() {
-    private lateinit var binding : ActivityFavouriteUserBinding
+    private lateinit var binding: ActivityFavouriteUserBinding
     private lateinit var adapter: FavouriteUserAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,30 +35,53 @@ class FavouriteUserActivity : AppCompatActivity() {
             setDisplayHomeAsUpEnabled(true)
             setBackgroundDrawable(getDrawable(R.drawable.base_action_bar_background))
         }
+        /*
+        val handlerThread = HandlerThread("DataObserver")
+        handlerThread.start()
+        val handler = Handler(handlerThread.looper)
+
+        val myObserver = object : ContentObserver(handler) {
+            override fun onChange(self: Boolean) {
+                //loadNotesAsync()
+                loadUserAsync()
+            }
+
+        }
+
+        contentResolver.registerContentObserver(CONTENT_URI, true, myObserver)
+
+         */
         loadUserAsync()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            android.R.id.home ->{
+        when (item.itemId) {
+            android.R.id.home -> {
                 super.onBackPressed()
                 return true
             }
         }
         return false
     }
+
+
     private fun loadUserAsync(){
         GlobalScope.launch(Dispatchers.Main){
             binding.favProgress.visibility = View.VISIBLE
             val favouriteUserHelper =FavouriteUserHelper.getInstance(applicationContext)
-            favouriteUserHelper.open()
+            //favouriteUserHelper.open()
+
             val deferredUser = async(Dispatchers.IO){
-                val cursor = favouriteUserHelper.queryAll()
+                //val cursor = favouriteUserHelper.queryAll()
+                val cursor = contentResolver.query(CONTENT_URI,null,null,null,null)
                 MappingHelper.mapCursorToArrayList(cursor)
             }
+
             binding.favProgress.visibility = View.GONE
             val users = deferredUser.await()
-            favouriteUserHelper.close()
+
+            //favouriteUserHelper.close()
+
             if (users.size>0){
                 showItem(users)
             }else{
@@ -61,12 +89,16 @@ class FavouriteUserActivity : AppCompatActivity() {
             }
         }
     }
-    private fun showItem(list : ArrayList<FavouriteUser>){
+
+
+
+    private fun showItem(list: ArrayList<FavouriteUser>) {
         binding.rvFavourite.layoutManager = LinearLayoutManager(this)
         adapter = FavouriteUserAdapter(list)
         binding.rvFavourite.adapter = adapter
     }
-    private fun showSnackbar(message: String){
-        Snackbar.make(binding.rvFavourite,message,Snackbar.LENGTH_SHORT).show()
+
+    private fun showSnackbar(message: String) {
+        Snackbar.make(binding.rvFavourite, message, Snackbar.LENGTH_SHORT).show()
     }
 }

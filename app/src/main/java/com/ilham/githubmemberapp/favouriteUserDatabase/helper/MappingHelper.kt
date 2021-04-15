@@ -19,6 +19,17 @@ object MappingHelper {
         }
         return userList
     }
+    fun mapCursorToObject(userCursor: Cursor?):ArrayList<FavouriteUser>{
+        var userList = ArrayList<FavouriteUser>()
+        userCursor?.apply {
+            moveToFirst()
+            val login = getString(getColumnIndexOrThrow(DatabaseContract.UserColumns.LOGIN))
+            val avatarUrl = getString(getColumnIndexOrThrow(AVATAR))
+            val userName = getString(getColumnIndexOrThrow(USERNAME))
+            userList.add(FavouriteUser(login,avatarUrl,userName))
+        }
+        return userList
+    }
 
 
 }

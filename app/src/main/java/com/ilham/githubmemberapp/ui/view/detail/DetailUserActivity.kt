@@ -19,6 +19,7 @@ import com.ilham.githubmemberapp.R
 import com.ilham.githubmemberapp.data.model.UserDetail
 import com.ilham.githubmemberapp.databinding.ActivityDetailUserBinding
 import com.ilham.githubmemberapp.favouriteUserDatabase.db.DatabaseContract.UserColumns.Companion.AVATAR
+import com.ilham.githubmemberapp.favouriteUserDatabase.db.DatabaseContract.UserColumns.Companion.CONTENT_URI
 import com.ilham.githubmemberapp.favouriteUserDatabase.db.DatabaseContract.UserColumns.Companion.LOGIN
 import com.ilham.githubmemberapp.favouriteUserDatabase.db.DatabaseContract.UserColumns.Companion.USERNAME
 import com.ilham.githubmemberapp.favouriteUserDatabase.db.FavouriteUserHelper
@@ -59,9 +60,10 @@ class DetailUserActivity : AppCompatActivity() {
         setUpObserver(loginKey)
 
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            android.R.id.home ->{
+        when (item.itemId) {
+            android.R.id.home -> {
                 super.onBackPressed()
                 return true
             }
@@ -114,12 +116,18 @@ class DetailUserActivity : AppCompatActivity() {
                 put(AVATAR, itemUsers.avatar_url)
                 put(USERNAME, itemUsers.name)
             }
-                val result = userHelper.insert(values)
-                if (result > 0) {
-                    binding.addToFav.setImageResource(R.drawable.ic_like_active)
-                } else {
-                    Toast.makeText(this, R.string.already_added, Toast.LENGTH_SHORT).show()
-                }
+            contentResolver.insert(CONTENT_URI,values)
+
+            /*
+            val result = userHelper.insert(values)
+
+            if (result > 0) {
+                binding.addToFav.setImageResource(R.drawable.ic_like_active)
+            } else {
+                Toast.makeText(this, R.string.already_added, Toast.LENGTH_SHORT).show()
+            }
+
+             */
         }
     }
 

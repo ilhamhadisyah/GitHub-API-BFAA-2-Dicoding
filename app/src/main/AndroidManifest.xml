@@ -6,6 +6,8 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
+    <permission android:name="com.ilham.githubmemberapp.READ_DATABASE" android:protectionLevel="normal" />
+    <permission android:name="com.ilham.githubmemberapp.WRITE_DATABASE" android:protectionLevel="normal" />
 
     <application
         android:allowBackup="true"
@@ -14,10 +16,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.GithubMemberApp">
+        <provider
+            android:name=".UserFavouriteProvider"
+            android:authorities="com.ilham.githubmemberapp"
+            android:enabled="true"
+            android:exported="true"
+            android:readPermission="com.ilham.githubmemberapp.READ_DATABASE"
+            android:writePermission="com.ilham.githubmemberapp.WRITE_DATABASE"/>
+
         <activity
             android:name=".ui.view.alarm.AlarmSettingActivity"
             android:parentActivityName=".ui.view.setting.SettingActivity"
-            android:theme="@style/Theme.GithubMemberApp"/>
+            android:theme="@style/Theme.GithubMemberApp" />
 
         <receiver
             android:name=".AlarmReceiver"
