@@ -35,12 +35,14 @@ class AlarmSettingActivity : AppCompatActivity(), View.OnClickListener,
 
         binding?.tvRepeatingTime?.setOnClickListener(this)
         binding?.setRepeatingAlarm?.setOnClickListener(this)
+        binding?.setCancelAlarm?.setOnClickListener(this)
 
         alarmReceiver = AlarmReceiver()
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
-            android.R.id.home ->{
+        when (item.itemId) {
+            android.R.id.home -> {
                 super.onBackPressed()
                 return true
             }
@@ -85,6 +87,10 @@ class AlarmSettingActivity : AppCompatActivity(), View.OnClickListener,
                     AlarmReceiver.REPEATING_ALARM, repeatTime, repeatMessage
                 )
             }
+            R.id.set_cancel_alarm -> {
+                alarmReceiver.cancelAlarm(context = this)
+            }
+
         }
     }
 

@@ -1,4 +1,4 @@
-package com.ilham.githubfavouriteuser.model
+package com.ilham.githubfavouriteuser.data
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
@@ -59,7 +59,7 @@ data class UserDetail(
 
     @Expose
     @SerializedName("repos_url")
-    val repos_url: String   ?,
+    val repos_url: String?,
 
     @Expose
     @SerializedName("events_url")

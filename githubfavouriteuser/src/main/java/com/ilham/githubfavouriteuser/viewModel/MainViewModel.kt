@@ -2,21 +2,12 @@ package com.ilham.githubfavouriteuser.viewModel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
-import com.ilham.githubfavouriteuser.repository.MainRepository
+import com.ilham.githubfavouriteuser.data.MainRepository
 import com.ilham.githubfavouriteuser.utils.Resources
 import kotlinx.coroutines.Dispatchers
 import java.lang.Exception
 
 class MainViewModel(private val mainRepository: MainRepository) : ViewModel() {
-
-    fun getItemList(query: String) = liveData(Dispatchers.IO) {
-        emit(Resources.loading(data = null))
-        try {
-            emit(Resources.success(data = mainRepository.getUsers(query)))
-        } catch (e: Exception) {
-            emit(Resources.error(data = null, message = e.message ?: "Error ocurred"))
-        }
-    }
 
     fun getUserDetailData(query: String) = liveData(Dispatchers.IO) {
         emit(Resources.loading(data = null))

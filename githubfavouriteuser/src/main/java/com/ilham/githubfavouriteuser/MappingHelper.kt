@@ -1,10 +1,11 @@
-package com.ilham.githubmemberapp.favouriteUserDatabase.helper
+package com.ilham.githubfavouriteuser
 
 import android.database.Cursor
-import com.ilham.githubmemberapp.favouriteUserDatabase.db.DatabaseContract
-import com.ilham.githubmemberapp.favouriteUserDatabase.db.DatabaseContract.UserColumns.Companion.AVATAR
-import com.ilham.githubmemberapp.favouriteUserDatabase.db.DatabaseContract.UserColumns.Companion.USERNAME
-import com.ilham.githubmemberapp.favouriteUserDatabase.entity.FavouriteUser
+import com.ilham.githubfavouriteuser.data.FavouriteUser
+import com.ilham.githubfavouriteuser.db.DatabaseContract
+import com.ilham.githubfavouriteuser.db.DatabaseContract.UserColumns.Companion.AVATAR
+import com.ilham.githubfavouriteuser.db.DatabaseContract.UserColumns.Companion.USERNAME
+
 
 object MappingHelper {
     fun mapCursorToArrayList(usersCursor: Cursor?): ArrayList<FavouriteUser> {

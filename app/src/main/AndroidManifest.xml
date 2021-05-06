@@ -6,8 +6,12 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
-    <permission android:name="com.ilham.githubmemberapp.READ_DATABASE" android:protectionLevel="normal" />
-    <permission android:name="com.ilham.githubmemberapp.WRITE_DATABASE" android:protectionLevel="normal" />
+    <permission
+        android:name="com.ilham.githubmemberapp.READ_DATABASE"
+        android:protectionLevel="normal" />
+    <permission
+        android:name="com.ilham.githubmemberapp.WRITE_DATABASE"
+        android:protectionLevel="normal" />
 
     <application
         android:allowBackup="true"
@@ -17,12 +21,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.GithubMemberApp">
         <provider
-            android:name=".UserFavouriteProvider"
+            android:name=".provider.UserFavouriteProvider"
             android:authorities="com.ilham.githubmemberapp"
             android:enabled="true"
             android:exported="true"
             android:readPermission="com.ilham.githubmemberapp.READ_DATABASE"
-            android:writePermission="com.ilham.githubmemberapp.WRITE_DATABASE"/>
+            android:writePermission="com.ilham.githubmemberapp.WRITE_DATABASE" />
 
         <activity
             android:name=".ui.view.alarm.AlarmSettingActivity"
@@ -56,7 +60,9 @@
             android:theme="@style/Theme.GithubMemberApp" />
         <activity
             android:name=".ui.view.main.MainActivity"
-            android:theme="@style/Theme.GithubMemberApp.NoActionBar" />
+            android:theme="@style/Theme.GithubMemberApp.NoActionBar">
+
+        </activity>
 
         <meta-data
             android:name="preloaded_fonts"

@@ -38,7 +38,8 @@
     <string name="already_added">User sudah ditambahkan…</string>
     <string name="github_repeat_alarm">GitHub Alarm</string>
     <string name="alarm_message">Pesan Alarm</string>
-    <string name="set_repeat_alarm">Atur Alarm Berulang</string>
+    <string name="set_repeat_alarm">Atur Alarm</string>
+    <string name="cancel_alarm">Batalkan alarm</string>
 
 
 </resources>

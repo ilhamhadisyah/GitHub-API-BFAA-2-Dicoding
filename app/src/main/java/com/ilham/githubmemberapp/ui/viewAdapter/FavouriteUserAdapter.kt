@@ -1,5 +1,6 @@
 package com.ilham.githubmemberapp.ui.viewAdapter
 
+import android.content.Intent
 import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import com.ilham.githubmemberapp.databinding.UserItemFavouriteBinding
 import com.ilham.githubmemberapp.favouriteUserDatabase.db.DatabaseContract
 import com.ilham.githubmemberapp.favouriteUserDatabase.db.FavouriteUserHelper
 import com.ilham.githubmemberapp.favouriteUserDatabase.entity.FavouriteUser
+import com.ilham.githubmemberapp.ui.view.detail.DetailUserActivity
 import com.squareup.picasso.Picasso
 
 class   FavouriteUserAdapter(val users: ArrayList<FavouriteUser>) :
@@ -35,20 +37,11 @@ class   FavouriteUserAdapter(val users: ArrayList<FavouriteUser>) :
                 users.removeAt(position)
                 notifyItemRemoved(position-1)
                 Toast.makeText(itemView.context, "Deleted", Toast.LENGTH_SHORT).show()
-                /*
-                val position = adapterPosition
-                val loginKey  = favouriteUser.login
-                val result = loginKey?.let { it1 -> favouriteUserHelper.deleteById(it1) }
-                if (result!! >0){
-                    Toast.makeText(itemView.context, "Deleted", Toast.LENGTH_SHORT).show()
-                    users.removeAt(position)
-                    notifyItemRemoved(position-1)
-
-                }else{
-                    Toast.makeText(itemView.context, "Failed to delete", Toast.LENGTH_SHORT).show()
-                }
-
-                 */
+            }
+            itemView.setOnClickListener {
+                val intent = Intent(itemView.context, DetailUserActivity::class.java)
+                intent.putExtra(DetailUserActivity.LOGIN_KEY, favouriteUser.login)
+                itemView.context.startActivity(intent)
             }
 
         }

@@ -2,7 +2,6 @@ package com.ilham.githubmemberapp.favouriteUserDatabase.db
 
 import android.net.Uri
 import android.provider.BaseColumns
-import java.net.URI
 
 object DatabaseContract {
     const val AUTHORITY = "com.ilham.githubmemberapp"

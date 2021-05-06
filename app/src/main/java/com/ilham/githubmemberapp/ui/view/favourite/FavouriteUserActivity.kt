@@ -35,22 +35,6 @@ class FavouriteUserActivity : AppCompatActivity() {
             setDisplayHomeAsUpEnabled(true)
             setBackgroundDrawable(getDrawable(R.drawable.base_action_bar_background))
         }
-        /*
-        val handlerThread = HandlerThread("DataObserver")
-        handlerThread.start()
-        val handler = Handler(handlerThread.looper)
-
-        val myObserver = object : ContentObserver(handler) {
-            override fun onChange(self: Boolean) {
-                //loadNotesAsync()
-                loadUserAsync()
-            }
-
-        }
-
-        contentResolver.registerContentObserver(CONTENT_URI, true, myObserver)
-
-         */
         loadUserAsync()
     }
 

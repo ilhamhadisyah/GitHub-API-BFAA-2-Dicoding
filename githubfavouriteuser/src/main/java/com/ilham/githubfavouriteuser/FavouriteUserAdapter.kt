@@ -1,5 +1,7 @@
 package com.ilham.githubfavouriteuser
 
+import android.content.Intent
+import android.net.Uri
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -7,35 +9,34 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.ilham.githubfavouriteuser.data.FavouriteUser
 import com.ilham.githubfavouriteuser.databinding.UserItemFavouriteBinding
-import com.squareup.picasso.Picasso
+import com.ilham.githubfavouriteuser.db.DatabaseContract
+import com.ilham.githubfavouriteuser.detail.DetailUserActivity
 
 class FavouriteUserAdapter(val users: ArrayList<FavouriteUser>) :
     RecyclerView.Adapter<FavouriteUserAdapter.UserViewHolder>() {
-
-
     inner class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val binding = UserItemFavouriteBinding.bind(itemView)
-        private lateinit var favouriteUserHelper: FavouriteUserHelper
+        private lateinit var uriWithId: Uri
         fun bind(favouriteUser: FavouriteUser) {
             binding.apply {
                 username.text = favouriteUser.userName
-                Picasso.get().load(favouriteUser.avatarUrl).into(avatar)
-            }
-            binding.deleteBtn.setOnClickListener{
-                favouriteUserHelper =FavouriteUserHelper.getInstance(itemView.context)
-                favouriteUserHelper.open()
-                val position = adapterPosition
-                val loginKey  = favouriteUser.login
-                val result = loginKey?.let { it1 -> favouriteUserHelper.deleteById(it1) }
-                if (result!! >0){
-                    Toast.makeText(itemView.context, "berhasi;", Toast.LENGTH_SHORT).show()
+
+                binding.deleteBtn.setOnClickListener {
+                    val position = adapterPosition
+                    val loginKey = favouriteUser.login
+                    uriWithId =
+                        Uri.parse(DatabaseContract.UserColumns.CONTENT_URI.toString() + "/" + loginKey)
+                    itemView.context.contentResolver.delete(uriWithId, null, null)
                     users.removeAt(position)
-                    notifyItemRemoved(position-1)
-                }else{
-                    Toast.makeText(itemView.context, "gagal", Toast.LENGTH_SHORT).show()
+                    notifyItemRemoved(position - 1)
+                    Toast.makeText(itemView.context, "Deleted", Toast.LENGTH_SHORT).show()
+                }
+                itemView.setOnClickListener {
+                    val intent = Intent(itemView.context, DetailUserActivity::class.java)
+                    intent.putExtra(DetailUserActivity.LOGIN_KEY, favouriteUser.login)
+                    itemView.context.startActivity(intent)
                 }
             }
-
         }
 
     }

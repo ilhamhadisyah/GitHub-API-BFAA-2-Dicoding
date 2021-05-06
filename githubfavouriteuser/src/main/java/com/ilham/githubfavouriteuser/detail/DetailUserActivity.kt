@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package com.ilham.githubmemberapp.ui.view.detail
+package com.ilham.githubfavouriteuser.detail
 
 import android.annotation.SuppressLint
 import android.content.ContentValues
@@ -15,27 +15,25 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
-import com.ilham.githubmemberapp.R
-import com.ilham.githubmemberapp.data.model.UserDetail
-import com.ilham.githubmemberapp.databinding.ActivityDetailUserBinding
-import com.ilham.githubmemberapp.favouriteUserDatabase.db.DatabaseContract.UserColumns.Companion.AVATAR
-import com.ilham.githubmemberapp.favouriteUserDatabase.db.DatabaseContract.UserColumns.Companion.CONTENT_URI
-import com.ilham.githubmemberapp.favouriteUserDatabase.db.DatabaseContract.UserColumns.Companion.LOGIN
-import com.ilham.githubmemberapp.favouriteUserDatabase.db.DatabaseContract.UserColumns.Companion.USERNAME
-import com.ilham.githubmemberapp.favouriteUserDatabase.db.FavouriteUserHelper
-import com.ilham.githubmemberapp.network.APIClient
-import com.ilham.githubmemberapp.network.APIHelper
-import com.ilham.githubmemberapp.ui.base.ViewModelFactory
-import com.ilham.githubmemberapp.ui.viewAdapter.PagerAdapter
-import com.ilham.githubmemberapp.ui.viewModel.MainViewModel
-import com.ilham.githubmemberapp.utils.Status
+import com.ilham.githubfavouriteuser.R
+import com.ilham.githubfavouriteuser.base.ViewModelFactory
+import com.ilham.githubfavouriteuser.data.UserDetail
+import com.ilham.githubfavouriteuser.databinding.ActivityDetailUserBinding
+import com.ilham.githubfavouriteuser.db.DatabaseContract.UserColumns.Companion.AVATAR
+import com.ilham.githubfavouriteuser.db.DatabaseContract.UserColumns.Companion.CONTENT_URI
+import com.ilham.githubfavouriteuser.db.DatabaseContract.UserColumns.Companion.LOGIN
+import com.ilham.githubfavouriteuser.db.DatabaseContract.UserColumns.Companion.USERNAME
+import com.ilham.githubfavouriteuser.network.APIClient
+import com.ilham.githubfavouriteuser.network.APIHelper
+import com.ilham.githubfavouriteuser.utils.Status
+import com.ilham.githubfavouriteuser.viewAdapter.PagerAdapter
+import com.ilham.githubfavouriteuser.viewModel.MainViewModel
 import com.squareup.picasso.Picasso
 
 
 class DetailUserActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailUserBinding
     private lateinit var viewModel: MainViewModel
-    private lateinit var userHelper: FavouriteUserHelper
 
     companion object {
         const val LOGIN_KEY = "login"
@@ -54,11 +52,8 @@ class DetailUserActivity : AppCompatActivity() {
             setBackgroundDrawable(getDrawable(R.drawable.base_action_bar_background))
             title = loginKey
         }
-        userHelper = FavouriteUserHelper.getInstance(applicationContext)
-        userHelper.open()
         setUpViewModel()
         setUpObserver(loginKey)
-
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -104,22 +99,9 @@ class DetailUserActivity : AppCompatActivity() {
         bindData(itemUsers)
         createTab(itemUsers)
         openUriBrowser(itemUsers)
-        addToFav(itemUsers)
 
     }
 
-    private fun addToFav(itemUsers: UserDetail) {
-        binding.addToFav.setOnClickListener {
-            val values = ContentValues()
-            values.apply {
-                put(LOGIN, itemUsers.login)
-                put(AVATAR, itemUsers.avatar_url)
-                put(USERNAME, itemUsers.name)
-            }
-            contentResolver.insert(CONTENT_URI,values)
-
-        }
-    }
 
     private fun openUriBrowser(itemUsers: UserDetail) {
         binding.apply {
@@ -143,8 +125,8 @@ class DetailUserActivity : AppCompatActivity() {
         TabLayoutMediator(tabs, viewPager) { tab, position ->
             run {
                 when (position) {
-                    0 -> tab.text = "${getString(R.string.followers)} ($followers)"
-                    1 -> tab.text = "${getString(R.string.following)} ($following)"
+                    0 -> tab.text = "Followers ($followers)"
+                    1 -> tab.text = "Following ($following)"
                 }
             }
         }.attach()

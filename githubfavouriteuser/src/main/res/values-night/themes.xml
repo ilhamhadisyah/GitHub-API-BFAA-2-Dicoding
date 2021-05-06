@@ -14,6 +14,7 @@
         <!-- Customize your theme here. -->
     </style>
 
+
     <drawable name="ic_search">@drawable/ic_baseline_search_24_white</drawable>
     <drawable name="ic_github">@drawable/ic_github_logo_white</drawable>
     <drawable name="ic_setting">@drawable/ic_baseline_settings_24_white</drawable>
@@ -34,4 +35,5 @@
     <drawable name="ic_delete">@drawable/ic_baseline_delete_24_light</drawable>
     <drawable name="ic_clock">@drawable/ic_clock_light</drawable>
     <drawable name="ic_alarm">@drawable/ic_alarm_light</drawable>
+
 </resources>

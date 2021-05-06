@@ -7,11 +7,12 @@ object APIClient {
 
     private const val BASE_URL = "https://api.github.com/"
 
-    private fun getRetrofit():Retrofit{
+    private fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-    val apiService : APIService = getRetrofit().create(APIService::class.java)
+
+    val apiService: APIService = getRetrofit().create(APIService::class.java)
 }

@@ -2,7 +2,6 @@ package com.ilham.githubfavouriteuser.db
 
 import android.net.Uri
 import android.provider.BaseColumns
-import java.net.URI
 
 object DatabaseContract {
     const val AUTHORITY = "com.ilham.githubmemberapp"
@@ -15,7 +14,7 @@ object DatabaseContract {
             const val AVATAR = "avatar"
             const val USERNAME = "username"
 
-            val CONTENT_URI :  Uri= Uri.Builder().scheme(SCHEME)
+            val CONTENT_URI: Uri = Uri.Builder().scheme(SCHEME)
                 .authority(AUTHORITY)
                 .appendPath(TABLE_NAME)
                 .build()
